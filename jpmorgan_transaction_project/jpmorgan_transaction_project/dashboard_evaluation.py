@@ -82,7 +82,7 @@ def render_independent():
         st.download_button('Download every case result', (evidence['folder']/'all_case_metrics.csv').read_bytes(), 'stage5_all_case_metrics.csv', 'text/csv')
         st.dataframe(tables['all_type_metrics'], hide_index=True)
     st.markdown('### Screening targets · both failed')
-    st.write('Hypothetical research benchmarks: mean recall ≥20% in every positive scenario, pooled precision ≥10% within every positive scenario, ≤100 native reviews in each no-injection control, and ≤200 native reviews in each case. These are not JPMorgan requirements, banking standards or evidence of production readiness.')
+    st.write('Hypothetical research benchmarks: mean recall ≥20% in every positive scenario, pooled precision ≥10% within every positive scenario, ≤100 native reviews in each no-injection control, and ≤200 native reviews in each case. These are not banking standards or evidence of production readiness.')
     st.write('Both pipelines failed recall in all seven positive scenarios. Phase 6 passed precision only in S4 and S6. It failed all five control-review limits: 159, 150, 141, 149 and 140 reviews. Phase 2 controls had 1, 1, 3, 0 and 2 reviews. Both pipelines passed the overall 200-review capacity check.')
     st.caption('Zero-alert positive cases fail the precision requirement; control recall and precision gates are not applicable. Controls are assessed using their review counts.')
     st.dataframe(display_table(tables['native_screening_by_scenario'], ['mean_recall', 'pooled_precision'], ['recall_pass', 'precision_pass', 'control_pass', 'capacity_pass', 'passed']), hide_index=True)

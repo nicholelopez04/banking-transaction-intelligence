@@ -134,8 +134,6 @@ with evaluation:
         st.caption('The Phase 1 reference is ineligible for selection because its training averages include later training records. Equal validation F1 favored the simpler prior-only feature set.')
     else:
         st.caption(f"Saved Phase 1 threshold: {metrics['selected_threshold']['threshold']:.6f} · precision@10: {metrics['precision_at_10']:.1%}. Ranking quality and threshold alert quality are different measures.")
-    st.markdown('#### How to explain this in an interview')
-    st.write('Precision asks how many alerts match known injections; recall asks how many known injections were found. F1 balances them. A false positive here is a transaction without an injection label—it may still be unusual. A small number of synthetic injections cannot establish real-world fraud detection quality.')
 
 
 with robustness:
