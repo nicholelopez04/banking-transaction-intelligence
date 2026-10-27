@@ -1,0 +1,251 @@
+{
+  "selected_model": "isolation_forest",
+  "selected_from": "validation only",
+  "frozen_at_utc": "2026-10-26T23:07:02.651445+00:00",
+  "protocol_sha256": "236db9e37b0be9c781b1f5a730cfb039647088cfe32a86361f3c6ad0fe102fa5",
+  "validation_sha256": "68e2c80e289a06d8f70be036d1cd710a722be73f03709fbfece01bc4716c4f39",
+  "artifacts_sha256": {
+    "large_spikes_11\\isolation_forest_frozen.joblib": "d1849899776d80f38e5a238e4cf4737d075e687e6706cdb171310bfd69b625ac",
+    "large_spikes_11\\local_outlier_factor_frozen.joblib": "ac471b82e5f2fd3ebbf21a4b02c47f1df32b42f11da8c07406cacfce8ef45ea0",
+    "large_spikes_22\\isolation_forest_frozen.joblib": "bf2abd90e8c747d23cf9c18a14b01cdfa5023251d7181c92626eb0160383f7dd",
+    "large_spikes_22\\local_outlier_factor_frozen.joblib": "1a9c8af55d7439593899ccf598611abfc4aa7f4a472d49d3f3ad1b435a8c998e",
+    "large_spikes_33\\isolation_forest_frozen.joblib": "634fbffa0a74a0442d79c2aefd182a2bf397b4166127ba52935cc6098c33f5cc",
+    "large_spikes_33\\local_outlier_factor_frozen.joblib": "6fb6e87c0a45e2e3c47fa4f218ceaf00410c798912a568ce19071400b2d35d36",
+    "large_spikes_44\\isolation_forest_frozen.joblib": "e36c9482648aa5d699f19da7b923154f61de097646b84ca6fcea8ace04d86549",
+    "large_spikes_44\\local_outlier_factor_frozen.joblib": "51f1b03c60460f6bc9ceda49f18915db1ff58cbf9470f78efd5c51962d52de5e",
+    "large_spikes_55\\isolation_forest_frozen.joblib": "861432fd8531160873c47f778f85e64007bfa6d18bb435c0b028166429ebb8a5",
+    "large_spikes_55\\local_outlier_factor_frozen.joblib": "ce689436a3923e821094a5d7be951f3aa16f8308d29dd13dfefc4e707f01a1af",
+    "moderate_spikes_11\\isolation_forest_frozen.joblib": "daf39714fac4654a6d11e2c81898ea286cec7285800b09eda2067918abdac0b0",
+    "moderate_spikes_11\\local_outlier_factor_frozen.joblib": "f6f291a61acdfb8e6bae0888725fc1e2737582b89372e09765715569b279dff1",
+    "moderate_spikes_22\\isolation_forest_frozen.joblib": "a6c3d852c305d0a03d4a0b49cee8991a6e39bd545d64081f876ebcbca5826877",
+    "moderate_spikes_22\\local_outlier_factor_frozen.joblib": "9af57e840509ef4dd6426308670f198bfcac3c350a520af65b0dd9492e6f7110",
+    "moderate_spikes_33\\isolation_forest_frozen.joblib": "d194530f1fdf4e35e0835f8208cb95039847a096d49b4afdcbd223acdb08ff25",
+    "moderate_spikes_33\\local_outlier_factor_frozen.joblib": "323f915bbe148ea3c1b5a58684937338d42189ea24fb38813ce33342e66a33dd",
+    "moderate_spikes_44\\isolation_forest_frozen.joblib": "4404ec635c8a31801761278f7734d9710f45507bd11c7592184fa0441dcd2c74",
+    "moderate_spikes_44\\local_outlier_factor_frozen.joblib": "4dc167c91b977bb3649bbdb1cbdad1fcfb39210fe7d2c46afae1e55b6faaa3d3",
+    "moderate_spikes_55\\isolation_forest_frozen.joblib": "2863b4537cd369f8fa706ce64274c2b4dc703eb9d79ce46b183bc034ebdb9090",
+    "moderate_spikes_55\\local_outlier_factor_frozen.joblib": "f1bf1f6f6617e0885c5b22056409a3a789789a1cc90e8cc6562cf4681415a4dc",
+    "small_amounts_11\\isolation_forest_frozen.joblib": "5e571917b33276845419d15e71a51b4e1cab2e3e115eb2e6003b58f847e3ff65",
+    "small_amounts_11\\local_outlier_factor_frozen.joblib": "23d80708f34cbb0a1cce19be031463901a91e2ed07d2c7b9e551d474ac6283d2",
+    "small_amounts_22\\isolation_forest_frozen.joblib": "336b07ac67e1f10fac5b7da311ee5476f061855202c94af115f6257fa1230f4e",
+    "small_amounts_22\\local_outlier_factor_frozen.joblib": "bca6892b4ae0c6b6edb8f54a64432f8a421d219e88914c51ba641a4e4f3f5bda",
+    "small_amounts_33\\isolation_forest_frozen.joblib": "470b437579df4b1bad9f4b3976eb154803a3b4e983cf91bfcc77d21be2f3709f",
+    "small_amounts_33\\local_outlier_factor_frozen.joblib": "14e998c19af0ab4b1ceb05aee08233a5a41dbd7c9e4422a35457580ea01ba981",
+    "small_amounts_44\\isolation_forest_frozen.joblib": "ba4fd642339d252bf6f54450d247121415c8209094e54d3534aa1ea67f8f8e05",
+    "small_amounts_44\\local_outlier_factor_frozen.joblib": "dc2da85a1da8624381ec961ecba58a52fd9ea14a12b51b9d3f8447c9303f625d",
+    "small_amounts_55\\isolation_forest_frozen.joblib": "ed97cbb37564cee6f27120b006253020094ee0bebc081663653f8f7f0acdf686",
+    "small_amounts_55\\local_outlier_factor_frozen.joblib": "2f71d66289271f9f9624428b450df0306518407e5f1789c5320b24f81b02e9ab"
+  },
+  "thresholds": [
+    {
+      "scenario": "large_spikes",
+      "seed": 11,
+      "model": "isolation_forest",
+      "threshold": 0.14349461827255838,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 11,
+      "model": "local_outlier_factor",
+      "threshold": 0.776727737912223,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 22,
+      "model": "isolation_forest",
+      "threshold": 0.0750367953126202,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 22,
+      "model": "local_outlier_factor",
+      "threshold": -0.06615048519250522,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 33,
+      "model": "isolation_forest",
+      "threshold": 0.06428197332520291,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 33,
+      "model": "local_outlier_factor",
+      "threshold": 0.6814024493422093,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 44,
+      "model": "isolation_forest",
+      "threshold": 0.01392319041438006,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 44,
+      "model": "local_outlier_factor",
+      "threshold": -0.14916946974073642,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 55,
+      "model": "isolation_forest",
+      "threshold": 0.07648928869820204,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "large_spikes",
+      "seed": 55,
+      "model": "local_outlier_factor",
+      "threshold": -0.0340733851981363,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 11,
+      "model": "isolation_forest",
+      "threshold": 0.06359815408230984,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 11,
+      "model": "local_outlier_factor",
+      "threshold": -0.6469148748944096,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 22,
+      "model": "isolation_forest",
+      "threshold": 0.0011609004112197452,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 22,
+      "model": "local_outlier_factor",
+      "threshold": 6.166039707429682,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 33,
+      "model": "isolation_forest",
+      "threshold": 0.06410435381273638,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 33,
+      "model": "local_outlier_factor",
+      "threshold": -0.3738933360557035,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 44,
+      "model": "isolation_forest",
+      "threshold": -0.1290281424257338,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 44,
+      "model": "local_outlier_factor",
+      "threshold": -0.8393907713453177,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 55,
+      "model": "isolation_forest",
+      "threshold": 0.10128320802816282,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "moderate_spikes",
+      "seed": 55,
+      "model": "local_outlier_factor",
+      "threshold": -0.3173578658932592,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 11,
+      "model": "isolation_forest",
+      "threshold": 0.04167495563203816,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 11,
+      "model": "local_outlier_factor",
+      "threshold": 0.27091151360135535,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 22,
+      "model": "isolation_forest",
+      "threshold": 0.008679794474446334,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 22,
+      "model": "local_outlier_factor",
+      "threshold": -0.18499062703889346,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 33,
+      "model": "isolation_forest",
+      "threshold": 0.02245924173772762,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 33,
+      "model": "local_outlier_factor",
+      "threshold": 0.06213460511457969,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 44,
+      "model": "isolation_forest",
+      "threshold": 0.0036126604479879143,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 44,
+      "model": "local_outlier_factor",
+      "threshold": -0.22798993253560873,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 55,
+      "model": "isolation_forest",
+      "threshold": 0.014791779795928606,
+      "threshold_rule": "maximum_validation_f1"
+    },
+    {
+      "scenario": "small_amounts",
+      "seed": 55,
+      "model": "local_outlier_factor",
+      "threshold": -0.43496585688767,
+      "threshold_rule": "maximum_validation_f1"
+    }
+  ]
+}

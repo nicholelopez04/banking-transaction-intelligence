@@ -1,0 +1,48 @@
+{
+  "selected_feature_set": "prior_ratio",
+  "feature_columns": [
+    "log_amount",
+    "amount_vs_prior_avg"
+  ],
+  "selection_rule": "Validation F1 descending; feature count ascending; alerts ascending; name ascending",
+  "train_rows": 463,
+  "validation_rows": 199,
+  "validation_injections": 2,
+  "missing_amount_rows_excluded": 4,
+  "cold_start_rows": 71,
+  "evaluation_scope": "Development data only; historical test not scored; fresh final period pending model freeze",
+  "history_policy": "Strictly earlier dates; validation history updates with earlier observed validation amounts, never labels",
+  "generator_changed": false,
+  "results": [
+    {
+      "feature_set": "phase1_reference",
+      "threshold": 0.16963803312008074,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "alerts": 2,
+      "feature_count": 2,
+      "eligible": false
+    },
+    {
+      "feature_set": "prior_ratio",
+      "threshold": 0.1617068977463595,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "alerts": 2,
+      "feature_count": 2,
+      "eligible": true
+    },
+    {
+      "feature_set": "enhanced",
+      "threshold": 0.08912558703961304,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "alerts": 2,
+      "feature_count": 5,
+      "eligible": true
+    }
+  ]
+}

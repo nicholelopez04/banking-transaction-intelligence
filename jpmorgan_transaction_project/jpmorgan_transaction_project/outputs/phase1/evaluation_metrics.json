@@ -1,0 +1,30 @@
+{
+  "train_rows": 463,
+  "validation_rows": 199,
+  "test_rows": 333,
+  "selected_threshold": {
+    "threshold": 0.16963803312008074,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "alerts": 2
+  },
+  "selection_rule": "Maximum validation F1; ties: fewer alerts, then higher threshold",
+  "feature_columns": [
+    "log_amount",
+    "amount_vs_customer_avg"
+  ],
+  "train_end_exclusive": "2026-09-15",
+  "validation_end_exclusive": "2026-09-21",
+  "f1": 0.0,
+  "test_injected_anomalies": 4,
+  "flagged": 0,
+  "true_positives": 0,
+  "false_positives": 0,
+  "false_negatives": 4,
+  "true_negatives": 329,
+  "precision": 0.0,
+  "recall": 0.0,
+  "precision_at_10": 0.4,
+  "evaluation": "Validation-selected threshold on historical synthetic test period whose baseline results were previously inspected; reserve a fresh final period after feature/model selection"
+}

@@ -1,0 +1,77 @@
+{
+  "generator_version": "scenario_period_v1",
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ],
+  "scenarios": {
+    "large_spikes": [
+      15.0,
+      35.0
+    ],
+    "moderate_spikes": [
+      3.0,
+      6.0
+    ],
+    "small_amounts": [
+      0.01,
+      0.08
+    ]
+  },
+  "feature_columns": [
+    "log_amount",
+    "amount_vs_prior_avg"
+  ],
+  "models": [
+    "isolation_forest",
+    "local_outlier_factor"
+  ],
+  "development_rows": 1000,
+  "future_rows": 500,
+  "train_start": "2026-09-01",
+  "train_end_exclusive": "2026-09-15",
+  "validation_end_exclusive": "2026-09-21",
+  "future_start": "2026-10-01",
+  "future_days": 10,
+  "future_seed_offset": 1000000,
+  "threshold_selection": "Maximum validation F1; fewer alerts; higher threshold. No positives: validation score quantile 0.97",
+  "model_selection": "Mean validation F1 across all fixed seeds/scenarios; fewer mean alerts; alphabetical model name",
+  "history_policy": "Strictly earlier dates, including earlier observed validation/future amounts, never labels",
+  "precision_recall_undefined_convention": "zero_division=0; defined flags saved",
+  "python": "3.12.14",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4",
+  "pandas": "3.1.0",
+  "model_parameters": {
+    "isolation_forest": {
+      "bootstrap": false,
+      "contamination": 0.03,
+      "max_features": 1.0,
+      "max_samples": "auto",
+      "n_estimators": 150,
+      "n_jobs": null,
+      "random_state": 11,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "local_outlier_factor": {
+      "algorithm": "auto",
+      "contamination": 0.03,
+      "leaf_size": 30,
+      "metric": "minkowski",
+      "metric_params": null,
+      "n_jobs": null,
+      "n_neighbors": 20,
+      "novelty": true,
+      "p": 2
+    }
+  },
+  "source_sha256": {
+    "main.py": "8ac809db21fd3915db629fd7b9ff7583095312d4956a30969178968db14865e8",
+    "phase2.py": "b6614545d282f469a5d778ed0c6d735a570cb39fca0dd38ba6b3f2d10c1b77be",
+    "phase4.py": "ceb4ba63452eacabb10b437f8524ecd0fe22890e0d545a4445dcb0b16f240ff1"
+  }
+}

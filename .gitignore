@@ -1,0 +1,49 @@
+# Python environments, bytecode and tools
+**/.venv/
+**/venv/
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.coverage
+**/htmlcov/
+**/*.egg-info/
+**/build/
+**/dist/
+
+# Secrets and machine-local settings
+**/.env
+**/.env.*
+!**/.env.example
+**/.streamlit/secrets.toml
+**/.aws/
+**/*.pem
+**/*.key
+**/credentials.json
+**/service-account*.json
+**/.vscode/
+**/.idea/
+Thumbs.db
+.DS_Store
+
+# Backups and bulky regenerated artifacts stay on disk
+/backups/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.joblib
+*.pkl
+*.log
+**/outputs/*
+# Small, synthetic reference fixtures intentionally accompany source
+!**/outputs/phase1/
+!**/outputs/phase2/
+
+# Original pre-upgrade artifacts are preserved locally
+/jpmorgan_transaction_project/jpmorgan_transaction_project/synthetic_transactions.csv
+/jpmorgan_transaction_project/jpmorgan_transaction_project/cleaned_transactions.csv
+/jpmorgan_transaction_project/jpmorgan_transaction_project/anomaly_results.csv
+/jpmorgan_transaction_project/jpmorgan_transaction_project/top_customers.csv
+/jpmorgan_transaction_project/jpmorgan_transaction_project/evaluation_metrics.json
