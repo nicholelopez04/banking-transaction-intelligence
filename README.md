@@ -6,7 +6,9 @@ A Python, Pandas, SQLite and Streamlit portfolio study of leakage-safe customer 
 
 **All transactions and injection labels are synthetic. These results measure detection of deliberately injected rows, not verified real-world fraud. Non-injected rows are not verified legitimate transactions.**
 
-This presentation update is prepared locally and awaits publication approval. The existing public dashboard may still show the earlier presentation. No new deployment is claimed here.
+The Stage 5 presentation was published in [commit d5879b7893ea0a8088f954dd6e062769bbae8b58](https://github.com/nicholelopez04/banking-transaction-intelligence/commit/d5879b7893ea0a8088f954dd6e062769bbae8b58) and verified live on October 27, 2026. The existing Streamlit Community Cloud app completed a Linux/Python 3.12.15 build. Live checks covered Stage 5 metrics, scenario charts, customer filters, transaction exploration, rankings and historical results; the public case-results download matched the saved evaluation output byte-for-byte.
+
+An initial `ImportError` for `load_independent` cleared after rebooting the existing app, without changing code or experiment results. Streamlit's build automatically substituted PyArrow 24.0.0 for pinned 26.0.0 as a provider compatibility fix; the repository's dependency files remain unchanged. See [deployment and verification details](docs/DEPLOYMENT.md).
 
 ## Final independent study
 
@@ -54,7 +56,7 @@ py -3.12 -m venv .venv
 
 If the supplied Python 3.12 environment already exists, reuse it and omit environment creation. Open [localhost](http://127.0.0.1:8501). No API keys, external accounts or database service are needed locally. Do not run `main.py` to launch the dashboard: all required saved evidence accompanies the publication bundle. Legacy experiment commands can replace historical output files and belong in a separate scratch checkout, not the accepted archive.
 
-For Linux, use Python 3.12, `python3.12 -m venv .venv`, `.venv/bin/python -m pip install -r requirements-lock.txt`, then `.venv/bin/python -m streamlit run app.py`. Paths resolve from source-file locations. A new Linux build of this update has not yet been performed; see [deployment notes](docs/DEPLOYMENT.md).
+For Linux, use Python 3.12, `python3.12 -m venv .venv`, `.venv/bin/python -m pip install -r requirements-lock.txt`, then `.venv/bin/python -m streamlit run app.py`. Paths resolve from source-file locations. The hosted Linux/Python 3.12.15 build and live dashboard were verified successfully; note the provider's PyArrow substitution described in [deployment notes](docs/DEPLOYMENT.md).
 
 ## Explore and explain the project
 
@@ -67,7 +69,7 @@ SQLite customer/daily aggregation functionality and [SQL examples](sql/analysis.
 & .\.venv\Scripts\python.exe -m pip check
 ```
 
-The complete local research suite includes fixture-only model fits and generator tests. It does not regenerate final cases. The compact public bundle includes the dashboard and legacy tests plus presentation tests; archive-dependent research tests remain local with their required evidence. Verification results and the exact publication allowlist are recorded in [the publication review](docs/PORTFOLIO_PUBLICATION_REVIEW.md) after local checks.
+The complete local research suite includes fixture-only model fits and generator tests. It does not regenerate final cases. The compact public bundle includes the dashboard and legacy tests plus presentation tests; archive-dependent research tests remain local with their required evidence. Local checks and the exact 83-file publication allowlist are recorded in [the historical pre-publication review](docs/PORTFOLIO_PUBLICATION_REVIEW.md); completed build and live checks are recorded in [deployment notes](docs/DEPLOYMENT.md).
 
 ## Architecture and evidence policy
 
@@ -83,8 +85,8 @@ flowchart LR
     H --> I[SQLite descriptive analysis]
 ```
 
-The application is in `jpmorgan_transaction_project/jpmorgan_transaction_project/`. `app.py` preserves explorer views; `dashboard_evaluation.py` presents final evidence; `dashboard_data.py` loads saved data and checks exported hashes. Small synthetic Phase 1/2 fixtures support legacy views; `docs/results/stage5/` contains compact final evidence. Full final datasets, predictions, model binaries, backup archives, environments, secrets and logs remain outside the proposed publication allowlist.
+The application is in `jpmorgan_transaction_project/jpmorgan_transaction_project/`. `app.py` preserves explorer views; `dashboard_evaluation.py` presents final evidence; `dashboard_data.py` loads saved data and checks exported hashes. Small synthetic Phase 1/2 fixtures support legacy views; `docs/results/stage5/` contains compact final evidence. Full final datasets, predictions, model binaries, backup archives, environments, secrets and logs remain outside the published allowlist.
 
 Limitations include synthetic label ambiguity, only five seeds per fixed scenario, generator authors' knowledge of model families, distribution assumptions, and narrow feature coverage. Paired bootstrap intervals are conditional descriptions, not real-world guarantees. The models differ in training data, temporal resolution and review policies. No further development or Phase 6 v2 is included.
 
-Read the [evaluation methodology](docs/EVALUATION.md), [interview guide](docs/INTERVIEW_GUIDE.md), and [historical architecture](docs/ARCHITECTURE.md). Existing hosting is Streamlit Community Cloud; publishing these changes requires separate approval and may trigger a public rebuild. Full research evidence is preserved locally with verified checksums; the public dashboard is a read-only evidence viewer.
+Read the [evaluation methodology](docs/EVALUATION.md), [interview guide](docs/INTERVIEW_GUIDE.md), and [historical architecture](docs/ARCHITECTURE.md). The updated dashboard is deployed on the existing Streamlit Community Cloud application. Full research evidence is preserved locally with verified checksums; the public dashboard is a read-only evidence viewer. No models were retrained or experimental artifacts changed for deployment.
