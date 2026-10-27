@@ -46,3 +46,14 @@ text-only correction does not change model or metric calculations.
 Changes remain local and uncommitted on codex/phase1-threshold-tuning. No remote
 repository was created; nothing was pushed or published. No licensing terms or
 real-world fraud performance claims were introduced.
+
+
+## Deployment verification
+
+Publication was explicitly approved after the original local verification. The
+approved files are now on GitHub and deployed on Streamlit Community Cloud using
+Python 3.12. One deployment-only regression test was added, bringing the passing
+suite to 27. The original 26 tests remain intact. No evaluation was rerun or retuned
+for hosting. See DEPLOYMENT.md for the live URLs and verified browser behaviors.
+The earlier local-only status and Linux limitation describe the pre-deployment
+verification stage; the actual hosted Linux build has now succeeded.

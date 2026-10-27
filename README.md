@@ -1,5 +1,7 @@
 # Banking Transaction Intelligence & Anomaly Detection
 
+[Live Streamlit dashboard](https://nicholelopez-banking-intelligence.streamlit.app/) | [GitHub repository](https://github.com/nicholelopez04/banking-transaction-intelligence)
+
 A Python portfolio project that analyzes synthetic banking transactions with Pandas
 and SQLite, builds customer history without look-ahead, and compares anomaly
 detectors using chronological validation and frozen future assessments.
@@ -215,10 +217,14 @@ for future model development. Real-world claims would require representative dat
 and reliable outcomes under appropriate access controls.
 
 [Interview preparation](docs/INTERVIEW_GUIDE.md) explains the Python, Pandas, SQL
-and ML decisions in plain language. Source and results are prepared locally;
-no GitHub repository has been created, pushed or published.
+and ML decisions in plain language. The reviewed source and synthetic reference results are published on GitHub,
+and the dashboard is deployed on Streamlit Community Cloud.
 
 
 ## Hosting
 
-Streamlit Community Cloud is the proposed free host. See [deployment preparation](docs/DEPLOYMENT.md) for the entrypoint, Python version, required accounts, public exposure and current verification limits. Publication is pending explicit approval. The hosted dashboard reads the committed synthetic reference data and compact recorded robustness evidence without running experiments.
+The [public dashboard](https://nicholelopez-banking-intelligence.streamlit.app/)
+is deployed on Streamlit Community Cloud's free tier using Python 3.12.
+The hosted app reads committed synthetic reference data and recorded robustness
+evidence without training models or regenerating evaluation data. It may sleep
+when inactive. See [deployment and live verification](docs/DEPLOYMENT.md).
