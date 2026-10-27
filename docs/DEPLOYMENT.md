@@ -1,5 +1,11 @@
 # Deployment and live verification
 
+## Pending final-study presentation update
+
+The accepted Stage 5 presentation has been prepared locally and is awaiting separate commit, push and deployment approval. The current proposed allowlist is `PUBLICATION_FILES.txt` (83 files); it is not the original 59-file upload list referenced in the historical record below. See `PORTFOLIO_PUBLICATION_REVIEW.md` for the new local checks and exclusions. No new Linux build or live verification of this update is claimed. The dashboard now also requires `dashboard_evaluation.py` and the compact `docs/results/stage5/` evidence directory; full research archives are not required at runtime.
+
+The rest of this document records the earlier deployment and its checks at that time. Those older test counts and model-performance views do not describe the pending update. A push to the configured public branch may trigger automatic redeployment, so it remains subject to explicit publication approval.
+
 - Public repository: https://github.com/nicholelopez04/banking-transaction-intelligence
 - Live dashboard: https://nicholelopez-banking-intelligence.streamlit.app/
 - Host: Streamlit Community Cloud, free tier.

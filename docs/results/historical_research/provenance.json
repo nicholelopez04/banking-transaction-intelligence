@@ -1,0 +1,10 @@
+{
+  "phase2_independent_metrics.json": {
+    "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/independent_evaluation/20261027T004917390269Z/evaluation_metrics.json",
+    "sha256": "4a6f755846d9fabe0786b59c18d021c65ec57b065e776f7c1b751f520aafc3cf"
+  },
+  "phase6_all_candidate_summary.csv": {
+    "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/development/20261026T220737119920-0400/report/candidate_summary.csv",
+    "sha256": "0b7cb76842babb2371a41861a9c3f6c3407b38954d0d431bafe0de54689c1229"
+  }
+}

@@ -1,0 +1,434 @@
+{
+  "sealed_utc": "2026-10-27T02:53:57.078637+00:00",
+  "specification": {
+    "approved_plan": {
+      "status": "PROPOSED; awaiting user approval; NO final draws, implementation or scoring performed",
+      "specification_markdown_sha256": "c76ca8a84eb6a9775e55f485559ae62f999fdb8a3dcbde4654084ac926e7c5ee",
+      "specification_markdown": "docs/STAGE5_INDEPENDENT_EVALUATION_PROPOSAL.md",
+      "comparators": {
+        "phase2": {
+          "artifact_sha256": "b862c621b4a404004e4ba00a5f052fc4e273fbefd06204dee7ad4a2b38419976",
+          "threshold": 0.1617068977463595,
+          "comparison": ">="
+        },
+        "phase6_v1": {
+          "artifact_sha256": "2db5dbef512b77eb0c199eb94f9f486f0d548008ea191c9cd88106b8a5866f43",
+          "freeze_manifest_sha256": "b944aad4c7594fa76136339c69471316d8467f4dd0e56b6350f57d07863f6e77",
+          "freeze_seal_sha256": "90ba68d187b87defa2b659906cecda9040a112725e717806ec876ee72d33d675",
+          "threshold": 0.99945009150821,
+          "comparison": ">"
+        }
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "customers": 240,
+          "activity_log_sd": 0.9,
+          "within_customer_log_sd": [
+            0.45,
+            0.95
+          ],
+          "cold_customer_fraction": 0.1,
+          "positive_rows": 40,
+          "types": {
+            "contextual_amount": 40
+          },
+          "seeds": [
+            730280001,
+            730280002,
+            730280003,
+            730280004,
+            730280005
+          ]
+        },
+        {
+          "id": "S2",
+          "customers": 420,
+          "activity_log_sd": 1.3,
+          "within_customer_log_sd": [
+            0.3,
+            0.9
+          ],
+          "cold_customer_fraction": 0.15,
+          "positive_rows": 100,
+          "types": {
+            "burst": 100
+          },
+          "seeds": [
+            730280006,
+            730280007,
+            730280008,
+            730280009,
+            730280010
+          ]
+        },
+        {
+          "id": "S3",
+          "customers": 360,
+          "activity_log_sd": 0.8,
+          "within_customer_log_sd": [
+            0.4,
+            1.05
+          ],
+          "cold_customer_fraction": 0.2,
+          "positive_rows": 200,
+          "types": {
+            "merchant_change": 200
+          },
+          "seeds": [
+            730280011,
+            730280012,
+            730280013,
+            730280014,
+            730280015
+          ]
+        },
+        {
+          "id": "S4",
+          "customers": 1000,
+          "activity_log_sd": 0.6,
+          "within_customer_log_sd": [
+            0.35,
+            0.85
+          ],
+          "cold_customer_fraction": 0.1,
+          "positive_rows": 400,
+          "types": {
+            "inactivity_return": 400
+          },
+          "seeds": [
+            730280016,
+            730280017,
+            730280018,
+            730280019,
+            730280020
+          ]
+        },
+        {
+          "id": "S5",
+          "customers": 360,
+          "activity_log_sd": 1.1,
+          "within_customer_log_sd": [
+            0.45,
+            0.95
+          ],
+          "cold_customer_fraction": 0.1,
+          "positive_rows": 100,
+          "types": {
+            "spending_ramp": 100
+          },
+          "seeds": [
+            730280021,
+            730280022,
+            730280023,
+            730280024,
+            730280025
+          ]
+        },
+        {
+          "id": "S6",
+          "customers": 600,
+          "activity_log_sd": 1.3,
+          "within_customer_log_sd": [
+            0.35,
+            1.05
+          ],
+          "cold_customer_fraction": 0.2,
+          "positive_rows": 200,
+          "types": {
+            "contextual_amount": 40,
+            "burst": 40,
+            "merchant_change": 40,
+            "inactivity_return": 40,
+            "spending_ramp": 40
+          },
+          "seeds": [
+            730280026,
+            730280027,
+            730280028,
+            730280029,
+            730280030
+          ]
+        },
+        {
+          "id": "S7",
+          "customers": 800,
+          "activity_log_sd": 1.8,
+          "within_customer_log_sd": [
+            0.45,
+            1.15
+          ],
+          "cold_customer_fraction": 0.4,
+          "positive_rows": 40,
+          "types": {
+            "contextual_amount": 8,
+            "burst": 8,
+            "merchant_change": 8,
+            "inactivity_return": 8,
+            "spending_ramp": 8
+          },
+          "seeds": [
+            730280031,
+            730280032,
+            730280033,
+            730280034,
+            730280035
+          ]
+        },
+        {
+          "id": "S8",
+          "customers": 500,
+          "activity_log_sd": 1.4,
+          "within_customer_log_sd": [
+            0.4,
+            1.1
+          ],
+          "cold_customer_fraction": 0.25,
+          "positive_rows": 0,
+          "types": {},
+          "seeds": [
+            730280036,
+            730280037,
+            730280038,
+            730280039,
+            730280040
+          ]
+        }
+      ],
+      "warmup_rows_per_case": 5000,
+      "scored_rows_per_case": 20000,
+      "case_count": 40,
+      "total_warmup_rows": 200000,
+      "total_scored_rows": 800000,
+      "total_positive_rows": 5400,
+      "warmup_utc": [
+        "2027-06-01T00:00:00Z",
+        "2027-08-01T00:00:00Z"
+      ],
+      "scored_utc": [
+        "2027-08-01T00:00:00Z",
+        "2027-09-30T00:00:00Z"
+      ],
+      "intervals": "left-inclusive, right-exclusive",
+      "equal_budget_reviews_per_20000": 200,
+      "quota": "N_d//100-N_previous_day//100",
+      "report_bootstrap_seed": 730289901,
+      "fixture_seeds": [
+        730299001,
+        730299002,
+        730299003
+      ],
+      "seed_exclusion_check": {
+        "collision": false,
+        "prior_recorded_seeds": [
+          4,
+          11,
+          22,
+          33,
+          42,
+          44,
+          55,
+          123,
+          321,
+          999,
+          1729,
+          860001,
+          860002,
+          860003,
+          1000011,
+          1000022,
+          1000033,
+          1000044,
+          1000055,
+          620270101,
+          620270102,
+          620270103,
+          620270104,
+          620270105,
+          620270106,
+          620270201,
+          620270202,
+          620270203,
+          620270301,
+          2026110101,
+          2026110102,
+          2026110103,
+          2026110104,
+          2026110105,
+          2026110106,
+          2026110107,
+          2026110108,
+          2026110109,
+          2026110110,
+          2026110111,
+          2026110112,
+          2026110113,
+          2026110114,
+          2026110115,
+          2026110116,
+          2026110117,
+          2026110118,
+          2026110119,
+          2026110120,
+          2026110121,
+          2026110122,
+          2026110123,
+          2026110124,
+          2026110125,
+          2026110126,
+          2026110127,
+          2026110128,
+          2026110129,
+          2026110130
+        ],
+        "no_rng_draws": true
+      },
+      "endpoints": [
+        "paired native-policy recall difference with actual volumes",
+        "paired equal-budget daily-ranking recall difference"
+      ],
+      "aggregate": "equal weight across seven positive scenario means; no-positive control separately",
+      "bootstrap": {
+        "draws": 10000,
+        "paired_units": "whole replicate cases, within fixed scenarios",
+        "interval": "95% percentile, descriptive/conditional"
+      },
+      "proposed_synthetic_screen": {
+        "status": "Awaiting approval; hypothetical prototype screen, not bank requirements",
+        "each_positive_scenario_mean_recall_min": 0.2,
+        "each_positive_scenario_pooled_precision_min": 0.1,
+        "each_control_case_native_review_max": 100,
+        "each_case_capacity_max": 200
+      },
+      "controls": "No fitting, refit, CDF update, recalibration, selection changes or case replacement. Stage5 code/tests/protocol must be sealed before first final draw. No public changes authorized."
+    },
+    "approved_markdown_sha256": "c76ca8a84eb6a9775e55f485559ae62f999fdb8a3dcbde4654084ac926e7c5ee",
+    "proposal_json_sha256": "d45bea0678c96127ebd8756122a99701d8bed7e3c2276625ea82099ce0790e92",
+    "final_generation_count_per_case": 1,
+    "approval_override": "Latest human instruction: generate the 40 fresh evaluation cases exactly once. This supersedes the older proposal double-generation step. Fixture reproduction and saved-file readback remain allowed.",
+    "generator_details": {
+      "mu_normal": [
+        4.1,
+        0.9
+      ],
+      "dirichlet_alpha": 0.5,
+      "weekly_amplitude": [
+        0,
+        0.35
+      ],
+      "weekday_weights": [
+        1,
+        1,
+        1,
+        1,
+        1.1,
+        0.9,
+        0.8
+      ],
+      "hours_mixture": [
+        0.75,
+        7,
+        23,
+        0.25,
+        0,
+        24
+      ],
+      "heavy_tail_probability": 0.03,
+      "heavy_tail_multiplier": [
+        1.25,
+        3.5
+      ],
+      "ordinary_cluster_fraction": 0.03,
+      "group_size": [
+        3,
+        9
+      ],
+      "burst_duration_seconds": [
+        300,
+        10800
+      ],
+      "ramp_duration_seconds": [
+        172800,
+        432000
+      ],
+      "contextual_multiplier": [
+        1.25,
+        2.75
+      ],
+      "ramp_peak": [
+        1.2,
+        2.4
+      ],
+      "merchant_blend": [
+        0.2,
+        0.6
+      ],
+      "hiatus_days": [
+        14,
+        42
+      ],
+      "hiatus_fraction": 0.3,
+      "S4_hiatus_fraction": 0.8,
+      "category_blend": "0.25 * elapsed_scored_fraction toward independent Dirichlet draw",
+      "amount_cycle": "1+0.10*sin(2*pi*elapsed_days_since_warmup_start/14)",
+      "S5_S8_pay_peaks": "1.25 on UTC monthly day 1..3",
+      "S6_drift": "scored days 21..40: 1.25; days 41..60: linear 1.25 to 1.0; earlier 1.0",
+      "partition": "uniform choice among next feasible sizes 3..9, conditional on exact remaining total",
+      "ordinary_cluster_allocation": "exact base-process allocation before interventions; some members can subsequently be selected for an intervention",
+      "episode_anchor_eligibility": "entire maximum episode span must avoid hiatus/arrival/end constraints; no score-based retry",
+      "arrival_anchor": "uniform mixture-clock timestamp on sampled integer arrival day; no records before actual anchor",
+      "warmup_anchor": "one per non-cold customer, uniform warmup day and mixture clock",
+      "component_rng_ids": {
+        "profiles": 0,
+        "warmup": 1,
+        "scored_base": 2,
+        "intervention_locations": 3,
+        "intervention_values_groups": 4
+      }
+    },
+    "identifier_policy": "case-unique random transaction-ID permutation drawn from component0 after profile/arrival draws, before interventions; avoids appended-anchor ID tie bias; same keys for both models",
+    "reporting": {
+      "screen_recall_mean_min": 0.2,
+      "screen_precision_scenario_pooled_min": 0.1,
+      "control_max_per_case": 100,
+      "native_capacity_max": 200,
+      "undefined_positive_precision_screen_pass": false,
+      "zero_positive_control_recall_auc_ap": "N/A",
+      "zero_alert_precision": "N/A",
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 730289901,
+      "interval": "95% percentile, conditional/descriptive",
+      "endpoints": [
+        "native recall difference",
+        "daily equal-budget recall difference"
+      ],
+      "aggregate": "equal-weight seven positive-scenario means; control separately"
+    }
+  },
+  "source_sha256": {
+    "stage5/__init__.py": "29ca592e6835e555f17aab0fcb15196f0b37f841fc59476a87f8e1a2545c5601",
+    "stage5/analysis.py": "cf9c7d3f28d4eaa5bb645163a6a31b6f296a70ce65f3b180b4ff29b06f8ca78e",
+    "stage5/config.py": "6ac800a90d483eeae1d4737a2a364a416b0a035a65b0d9189b88a729565772a2",
+    "stage5/generator.py": "db8e526f8e898f761cd1ed59d7e06ad8a31f2497e6f31233f17cba139f74eac5",
+    "stage5/integrity.py": "42b8ad0de3c8435d6bfbc65a97034d902e6f662b4c29f7d135ecdaeb7b39e025",
+    "stage5/reporting.py": "8be4d6c09ed2e1b6527423a9375cb094432a483a42a6e4cfb35d1be61b3c2f4c",
+    "stage5/run_final.py": "82404a7292e629951a0810a9f1c6b8cf77b38ba21eb1b665414fe02cd8a1ffd7",
+    "tests/test_stage5.py": "ba6e6bd29e9bcaa1ee58ba71523a4db935df037e4149efcb9ef2f75206184aff"
+  },
+  "preflight_passed": true,
+  "preflight_log_sha256": "169e95ed1df93947859fc2d5a2e18d1b0181ef3f75d6fb21a2baab86f0ef2861",
+  "phase2_artifact_sha256": "b862c621b4a404004e4ba00a5f052fc4e273fbefd06204dee7ad4a2b38419976",
+  "phase6_artifact_sha256": "2db5dbef512b77eb0c199eb94f9f486f0d548008ea191c9cd88106b8a5866f43",
+  "frozen_phase6_seal_sha256": "90ba68d187b87defa2b659906cecda9040a112725e717806ec876ee72d33d675",
+  "phase2_freeze_metadata_sha256": "478605dd9c97deb56a82f9d8ae1c97ad805f1853250e81130ba1676fdbcfd6b5",
+  "phase6_configuration_sha256": "1c0be156aeb264e1cc3ed47b3e0bc79f86fe2dbc1bd47c78049548e7d8e214f4",
+  "phase2_source_sha256": {
+    "main.py": "7aa81eb532273b518cbc6ceefe156cc6facc6a66bcfb0d9e31d245a8fef7fa1f",
+    "phase2.py": "b6614545d282f469a5d778ed0c6d735a570cb39fca0dd38ba6b3f2d10c1b77be",
+    "phase4.py": "ceb4ba63452eacabb10b437f8524ecd0fe22890e0d545a4445dcb0b16f240ff1",
+    "requirements-lock.txt": "b0d83df7488c8576c4303e4bd8dc2de7f66ad8562c59b4158a820d98efa5bf85"
+  },
+  "dependency_lock_sha256": "b0d83df7488c8576c4303e4bd8dc2de7f66ad8562c59b4158a820d98efa5bf85",
+  "generation_rule": "Exactly once, persistent pre-RNG seed claim; no selective regeneration",
+  "approved_scope": "Stage5 only; frozen model fits and threshold updates forbidden; no dashboard/Git/publication"
+}

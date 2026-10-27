@@ -1,0 +1,95 @@
+{
+  "study": "20261026T225228687831-0400",
+  "protocol_sha256": "5c6f4d1a6704dd109689aae92f6cdfe97930c2d4518a9f492f12d47717efd9f2",
+  "source_inventory_sha256": "9fc1784bfe0f6783d566fa7f234463abc22ac561695ba59825b17f96f9da9ef5",
+  "source_final_review_seal_sha256": "aa67195493bb5378faaedbbaa44a0cd914c645d8066feadfaccd6e68e50e7dd3",
+  "cases": 40,
+  "scored_rows": 800000,
+  "warmup_rows": 200000,
+  "injected_rows": 5400,
+  "injected_events": 4181,
+  "synthetic_only": true,
+  "experiment_rerun": false,
+  "files": {
+    "pooled_metrics.csv": {
+      "sha256": "b6a3a93b1a25d6f78114496bcac9528c82283cf15d9ae3cf9cbe262a449ee58f",
+      "bytes": 482,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/pooled_metrics.csv"
+    },
+    "scenario_summary.csv": {
+      "sha256": "85dbc309b85d8def7205e558a28812c2df3f88ca204f446f09e9c75422543c8d",
+      "bytes": 4788,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/scenario_summary.csv"
+    },
+    "scenario_variability.csv": {
+      "sha256": "94010d018282354299f40a6104fce269cf30fca71f329b61247b234bc582e4db",
+      "bytes": 10306,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/scenario_variability.csv"
+    },
+    "all_case_metrics.csv": {
+      "sha256": "6e15a99525f8fb323dba9e636f0b5722aaabb9b420772474ddb80877970d99a2",
+      "bytes": 31925,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/all_case_metrics.csv"
+    },
+    "all_type_metrics.csv": {
+      "sha256": "ad2d1bca29fef8d0b843f61b1ce7dadd165f9a23b44ae5f88391257dfec452b9",
+      "bytes": 42936,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/all_type_metrics.csv"
+    },
+    "pooled_type_metrics.csv": {
+      "sha256": "4643f007036dfafbe5eebc9edbf61e5e742916115481d636bf9aec9f02f8a90c",
+      "bytes": 1184,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/pooled_type_metrics.csv"
+    },
+    "native_screening_by_scenario.csv": {
+      "sha256": "7cebcde0da6827b27812d10a66d379a8946c904525165de430aceed6b9a7929d",
+      "bytes": 976,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/native_screening_by_scenario.csv"
+    },
+    "native_screening_overall.json": {
+      "sha256": "30e4d88c040f74bab7b6243132d1ef67d686bb9db5810b7761f40c31b1022e6b",
+      "bytes": 190,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/native_screening_overall.json"
+    },
+    "paired_case_differences.csv": {
+      "sha256": "4fa70bbe7756e73c7d8ea122f11f29ca837a861ea5db5f7b1afc6c4ae0b26ffc",
+      "bytes": 2967,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/paired_case_differences.csv"
+    },
+    "paired_scenario_intervals.csv": {
+      "sha256": "2d8499d66b5af87b402b1590a901deaf9d69ee351f51346df03972996dc30f85",
+      "bytes": 1275,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/paired_scenario_intervals.csv"
+    },
+    "paired_aggregate_intervals.json": {
+      "sha256": "04094ff56b3699f5f5040166a91a04a66d39cf482ab47143bcd530dcf57968f8",
+      "bytes": 531,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/paired_aggregate_intervals.json"
+    },
+    "relative_interpretation.json": {
+      "sha256": "804bee189fa81981e4727bc654c3b3e117a1ad3ae88df1e7794ab59e74a00da0",
+      "bytes": 198,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/relative_interpretation.json"
+    },
+    "score_diagnostics.csv": {
+      "sha256": "c6cf3a0c0857ee0cc14efaf46c1119445cc9555bcba95057d85577fff7ff5035",
+      "bytes": 17550,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/score_diagnostics.csv"
+    },
+    "protocol.json": {
+      "sha256": "5c6f4d1a6704dd109689aae92f6cdfe97930c2d4518a9f492f12d47717efd9f2",
+      "bytes": 14094,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/protocol.json"
+    },
+    "protocol_seal.json": {
+      "sha256": "a5116ebba6d74cf68506e08fb0a17488d695aa5cec236068f092395dbd5ec591",
+      "bytes": 146,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/protocol_seal.json"
+    },
+    "REPORT.md": {
+      "sha256": "52aa1f938a97ab80bf3da2a182405738254d64bc24b23472b28bfac40f8d507b",
+      "bytes": 40517,
+      "source": "jpmorgan_transaction_project/jpmorgan_transaction_project/outputs/phase6/independent/20261026T225228687831-0400/REPORT.md"
+    }
+  }
+}

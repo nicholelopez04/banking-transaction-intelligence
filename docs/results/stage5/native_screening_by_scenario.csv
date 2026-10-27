@@ -1,0 +1,17 @@
+model,scenario,mean_recall,pooled_precision,recall_pass,precision_pass,control_pass,capacity_pass,max_reviews,passed
+phase2,S1,0.0,0.0,False,False,,True,2,False
+phase2,S2,0.0,0.0,False,False,,True,1,False
+phase2,S3,0.0,0.0,False,False,,True,4,False
+phase2,S4,0.0,,False,False,,True,0,False
+phase2,S5,0.0,0.0,False,False,,True,2,False
+phase2,S6,0.0,0.0,False,False,,True,7,False
+phase2,S7,0.0,0.0,False,False,,True,12,False
+phase2,S8,,,,,True,True,3,True
+phase6_v1,S1,0.01,0.006230529595015576,False,False,,True,68,False
+phase6_v1,S2,0.002,0.001658374792703151,False,False,,True,131,False
+phase6_v1,S3,0.003,0.007425742574257425,False,False,,True,85,False
+phase6_v1,S4,0.1705,0.3951332560834299,False,True,,True,176,False
+phase6_v1,S5,0.004,0.0037243947858473,False,False,,True,118,False
+phase6_v1,S6,0.094,0.12005108556832694,False,True,,True,169,False
+phase6_v1,S7,0.095,0.020342612419700215,False,False,,True,191,False
+phase6_v1,S8,,,,,False,True,159,False

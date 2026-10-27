@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "completed_at_utc": "2026-10-27T00:55:42.110557+00:00",
+  "datasets": 30,
+  "warmup_rows": 60000,
+  "pooled": {
+    "test_rows": 300000,
+    "positive_rows": 3000,
+    "TP": 0,
+    "FP": 6,
+    "FN": 3000,
+    "TN": 296994,
+    "alert_count": 6,
+    "injected_events": 2360,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "alert_rate": 2e-05
+  },
+  "protocol_sha256": "1b6dbfb898befcebda06e36c977019e41a9dbbbab6a8aef8341e8ed81840427f",
+  "frozen_model_sha256": "b862c621b4a404004e4ba00a5f052fc4e273fbefd06204dee7ad4a2b38419976",
+  "all_reproducibility_checks_passed": true,
+  "all_prefix_leakage_checks_passed": true,
+  "all_label_invariance_checks_passed": true,
+  "scaler_unchanged": true,
+  "model_configuration_unchanged": true,
+  "claim": "Performance against synthetic injection labels, not verified real-world fraud detection",
+  "no_dashboard_or_git_changes": true
+}

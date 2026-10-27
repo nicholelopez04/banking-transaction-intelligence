@@ -1,9 +1,25 @@
 """Read saved experiment artifacts; no generation, fitting or scoring."""
 import json
+import hashlib
 from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent
+
+
+def load_independent(root=ROOT):
+    """Load the reviewed, portable snapshot and verify every exported byte."""
+    folder = Path(root).resolve().parents[1]/'docs/results/stage5'
+    manifest = json.loads((folder/'evidence_manifest.json').read_text(encoding='utf-8'))
+    for name, info in manifest['files'].items():
+        if Path(name).name != name:
+            raise ValueError('Evidence filenames must be local basenames')
+        if hashlib.sha256((folder/name).read_bytes()).hexdigest() != info['sha256']:
+            raise ValueError(f'Evidence checksum mismatch: {name}')
+    tables = {Path(name).stem: pd.read_csv(folder/name) for name in manifest['files'] if name.endswith('.csv')}
+    documents = {Path(name).stem: json.loads((folder/name).read_text(encoding='utf-8'))
+                 for name in manifest['files'] if name.endswith('.json')}
+    return dict(manifest=manifest, tables=tables, documents=documents, folder=folder)
 
 
 def read_csv(path):

@@ -50,14 +50,14 @@ class DashboardTests(unittest.TestCase):
         app = self.app()
         self.assertEqual(app.title[0].value, 'Transaction Intelligence')
         self.assertTrue(any('SYNTHETIC DATA ONLY' in x.value for x in app.warning))
-        self.assertEqual(app.metric[0].value, f"{len(load_saved()['cleaned']):,}")
+        self.assertEqual(next(m.value for m in app.metric if m.label == 'Transactions'), f"{len(load_saved()['cleaned']):,}")
 
     def test_filters_empty_and_evaluation_stays_full_split(self):
         app = self.app()
         before = [m.value for m in app.metric][-4:]
         app.sidebar.multiselect[0].set_value([]).run()
         self.assertFalse(app.exception)
-        self.assertEqual(app.metric[0].value, '0')
+        self.assertEqual(next(m.value for m in app.metric if m.label == 'Transactions'), '0')
         self.assertEqual([m.value for m in app.metric][-4:], before)
 
     def test_historical_evaluation_and_alert_only_ranking(self):

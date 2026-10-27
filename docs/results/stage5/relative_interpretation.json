@@ -1,0 +1,4 @@
+{
+  "both_point_estimates_and_lower_bounds_positive": true,
+  "limitation": "Conditional descriptive intervals; five cases per fixed setting, not real-world or multiplicity-adjusted guarantees"
+}

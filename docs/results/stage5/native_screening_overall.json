@@ -1,0 +1,12 @@
+[
+  {
+    "model": "phase2",
+    "passes_all": false,
+    "hypothetical_only": true
+  },
+  {
+    "model": "phase6_v1",
+    "passes_all": false,
+    "hypothetical_only": true
+  }
+]

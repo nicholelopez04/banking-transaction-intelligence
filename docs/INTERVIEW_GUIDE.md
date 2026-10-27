@@ -1,75 +1,44 @@
-# Interview guide
+# Interview guide — final research findings
 
-## A concise project explanation
+## A concise explanation
 
-"I built a reproducible synthetic transaction analysis project using Python,
-Pandas, SQLite and anomaly detection. I separated training, validation and future
-assessment, computed customer history from earlier dates only, and compared
-Isolation Forest with LOF across seeds and scenarios. I exposed saved evidence
-in Streamlit. The experiment showed that perfect validation metrics on a few
-synthetic injections can fail on later data. These are anomaly-review results,
-not real-world fraud detection claims."
+“I built a synthetic transaction intelligence portfolio using Python, Pandas, SQLite and Streamlit. I tested customer-history leakage, froze the models and review policies, and evaluated them on 40 new paired cases. Perfect validation metrics on two injected examples did not generalize. A richer behavioral pipeline found more injections, but nearly all its detections were inactivity returns, it exceeded control-review limits, and neither pipeline passed the predefined research screens. I preserved those failures and made the complete evidence visible rather than tuning to the test.”
 
-## Concepts to explain clearly
+## The numbers to know
 
-| Topic | Explanation tied to this project |
-|---|---|
-| Pandas groupby | Collect rows for the same customer/day and calculate sums and counts |
-| Cumulative history | Running sums/counts minus the whole current day give earlier-day customer history |
-| Merge | Attach that historical summary back to each transaction using customer and date |
-| log1p | Compress very large amounts while remaining defined at zero |
-| Cold start | No customer history exists yet; use a prior global fallback and neutral personal ratio |
-| Training-only scaler | Learn feature means/scales from training, then apply them unchanged to later rows |
-| SQL WHERE vs HAVING | WHERE filters rows before aggregation; HAVING filters the grouped results |
-| Isolation Forest | Unusual observations can often be isolated by fewer random splits |
-| LOF novelty mode | Compare new observations with neighbor density in the training reference |
-| Contamination | Controls a training-derived default cutoff, not the future alert percentage |
-| Decision threshold | Converts an anomaly score into a review flag; selection affects recall and workload |
-| Precision | Of flagged records, what fraction has a known injection label? |
-| Recall | Of known injections, what fraction was flagged? |
-| F1 | Harmonic mean balancing precision/recall; it does not encode business costs |
-| Precision@10 | Injection share within the ten highest-scored transactions in a complete period |
-| Leakage | Using information unavailable when a transaction would have been scored |
-| Reproducibility | Explicit seeds, pinned dependencies, saved protocol, source hashes and model artifacts |
+- Final study: eight scenarios × five seeds, 800,000 scored rows, 5,400 injected rows, 4,181 injected events and 200,000 warmup rows.
+- Phase 2 native: 83 reviews, zero injected rows detected; precision/recall/F1 all zero.
+- Phase 6 v1 native: 5,184 reviews, 462 detections, 8.912% precision, 8.556% pooled recall, 8.730% F1.
+- 452 of those 462 detections (97.8%) were inactivity returns. Only ten covered all other types.
+- Equal-budget ranking only: exactly 8,000 reviews each; Phase 2 detected 78 and Phase 6 detected 507. Phase 6 still lost on contextual amounts and spending ramps.
+- Both failed 20% mean recall in every positive scenario. Phase 6 passed scenario precision only in S4/S6 and failed all five control workloads. These are hypothetical synthetic benchmarks, not banking requirements.
 
-## Evidence worth discussing
-
-The original baseline found all four test injections with 16 alerts (25% precision).
-Phase 1's threshold looked perfect on two validation injections but missed all four
-historical test injections. I kept that failure visible instead of tuning to test.
-Phase 2's expanded features tied the simpler prior-only set, so I kept the simpler
-set. Phase 4 selected Isolation Forest on mean validation F1 before future data
-existed. Its large-spike future F1 averaged about 0.80; moderate spikes were much
-harder. LOF had a slightly higher small-amount F1, but one moderate-spike run
-flagged 337 of 498 records. Average metrics alone would hide that workload risk.
+Use the [saved report](results/stage5/REPORT.md), [pooled metrics](results/stage5/pooled_metrics.csv), and [all per-case results](results/stage5/all_case_metrics.csv) to substantiate claims.
 
 ## Questions to anticipate
 
-**Why not call it fraud detection?** Labels mark deliberate synthetic amount
-changes. We do not have confirmed fraud outcomes or representative real transactions.
+**Why was validation precision and recall 100%?** The Phase 2 model selected features and a threshold using only two injected positives. Label this “Model Selection Only — Two Injected Anomalies.” It was not independent performance. Its earlier independent study missed all 3,000 injected rows; the final paired study also found zero at its native threshold.
 
-**Is an unsupervised model using labels?** Model fitting uses features only.
-Validation labels choose thresholds and models, so the operating-point selection
-is label-informed. Calling the entire evaluation fully label-free would be wrong.
+**What did Phase 6 change?** New chronological development data, richer timestamp histories, two feature sets, nine predefined candidates, label-free percentile calibration and an explicit end-of-day review budget. Candidates included empirical-CDF rules, Isolation Forest and diagonal Gaussian mixtures. No expanded search was performed after seeing results.
 
-**Why separate validation and test?** Validation makes decisions; assessment checks
-those fixed decisions on later observations. Repeatedly adjusting to assessment
-results turns that data into development data.
+**Why select rules_B if Isolation Forest had higher recall?** Higher-recall Isolation Forest configurations violated the predefined no-injection control gate. Only rules_B and gmm_B_2 were eligible; their macro recall difference fell within the predefined tie tolerance and worst-type recalls tied, so positive-world precision selected rules_B. A selected development outcome is not necessarily a successful model. Its later development audit recall was only 16/670 = 2.39% and did not trigger reselection.
 
-**What did you fix about customer averages?** Full-window training averages include
-future training rows. I used only earlier days for each row, excluded same-day peers,
-and tested that later changes cannot alter earlier features.
+**How did you prevent leakage?** Phase 2 averages use strictly earlier dates. Phase 6 windows include [t-window, t), excluding equal-timestamp peers. Training-only fitted states and score-only calibration were frozen. Tests cover future perturbations, labels, ordering, cold starts, streaming parity and chronological boundaries. Warmup updates history without fitting. No final test was used to tune the pipeline.
 
-**What would you improve next?** Predeclare richer scenarios, robust customer
-history measures and cost/review-budget objectives, then reserve new untouched
-periods. Any real-world claim needs representative data and reliable outcomes.
+**What is an empirical-CDF rule?** A value is compared with a frozen reference distribution; its percentile is the fraction of reference values less than or equal to it. Five behavioral percentiles feed a maximum score with fixed sparse-history gates. This is an unusualness score, not a fraud probability.
 
-**Is this production ready?** It is a batch portfolio demo. It does not implement
-real-time scoring, operational monitoring, deployment controls or payment decisions.
+**Why report two review policies?** Native policies describe actual frozen decisions with unequal workloads. Equal-budget ranking describes prioritization with identical total review capacity, including below-threshold rows. Mixing them would misrepresent operational behavior. The Phase 6 queue is batch review after UTC day closure, not real-time blocking.
 
-## Keep claims tied to evidence
+**Did Phase 6 outperform Phase 2?** It had higher aggregate synthetic recall under both comparisons, with conditional paired intervals, but this was concentrated in one anomaly type. It lost in two equal-budget scenarios, failed workload controls and failed every scenario's recall requirement. Different training data, features and policies prevent attributing the gain solely to an algorithm. I would not call it a generally superior or practical fraud detector.
 
-Say "recall on known synthetic injections," not "fraud detection accuracy."
-Say "no validation gain from extra features," not "features always hurt."
-Say "variation across five seeds," not "a confidence interval."
-Say "validation selected Isolation Forest," not "the test selected the winner."
+**What do the uncertainty intervals mean?** They describe paired variation conditional on these fixed scenarios and five seeds, using whole-case bootstrap resampling within scenarios. The native mean-scenario recall difference was +5.407 percentage points, interval [5.000, 5.821]. This is not the pooled recall difference, and the interval does not establish representative banking performance. Sample SD in scenario charts is a different descriptive quantity.
+
+**Are false positives legitimate transactions?** No. FP here means a review without a synthetic injection label. Such a transaction may still be unusual. An injected row may also look ordinary. There are no verified real-world fraud outcomes in this study.
+
+**What technical skills does the project demonstrate?** Pandas cleaning and groupby operations, chronological feature state, training-only preprocessing, explicit model-selection rules, reproducible fixtures, serialized artifact checks, confusion/ranking metrics, SQLite aggregation, Streamlit interactions and evidence provenance. SQL WHERE filters rows before aggregation; HAVING filters grouped totals. Descriptive full-period SQL summaries never feed historical scoring features.
+
+**Is it production-ready?** No. Synthetic labels and populations, narrow coverage, failed targets and no operational validation prevent that claim. The hosted dashboard is a saved-evidence portfolio viewer. Further model development would need a separately approved design and new untouched assessment data; no Phase 6 v2 has begun.
+
+## Keep claims precise
+
+Say “synthetic injection detection,” not “fraud detection accuracy.” Distinguish rows from events, pooled metrics from mean-scenario metrics, native decisions from equal-budget ranking, and validation selection from independent evaluation. Keep negative results visible. No new dashboard deployment is claimed until separately approved and verified.

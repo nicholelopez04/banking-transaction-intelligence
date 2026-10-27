@@ -2,9 +2,10 @@
 import plotly.express as px
 import streamlit as st
 from dashboard_data import load_saved, filter_transactions, confusion_counts, load_robustness
+from dashboard_evaluation import render_independent
 
 st.set_page_config(page_title='Transaction Intelligence', page_icon='🏦', layout='wide')
-st.markdown('<style>.block-container{padding-top:4rem} [data-testid="stMetric"]{background:rgba(100,150,220,.12);padding:16px;border-radius:12px}</style>', unsafe_allow_html=True)
+st.markdown('<style>.block-container{padding-top:4rem} [data-testid="stMetric"]{background:rgba(100,150,220,.12);padding:16px;border-radius:12px} [data-testid="stMetricValue"]{font-size:1.3rem}</style>', unsafe_allow_html=True)
 st.caption('BANKING ANALYTICS / PORTFOLIO LAB')
 st.title('Transaction Intelligence')
 st.warning('SYNTHETIC DATA ONLY · Anomaly alerts are unusual transactions for review, not verified fraud. Synthetic injection metrics do not establish real-world fraud detection quality.')
@@ -12,12 +13,12 @@ try:
     saved = load_saved()
 except (OSError, ValueError, KeyError) as exc:
     st.error(f'Saved experiment files are missing or unreadable: {exc}')
-    st.code('.\\.venv\\Scripts\\python.exe main.py --phase 1\n.\\.venv\\Scripts\\python.exe main.py', language='powershell')
+    st.info('Restore the reviewed saved evidence files from the repository. Launching this viewer does not require regenerating historical experiments.')
     st.stop()
 
 raw, cleaned = saved['raw'], saved['cleaned']
 st.sidebar.header('Transaction filters')
-st.sidebar.caption('Filters affect overview, customer analysis and ranking. Evaluation uses its complete saved split.')
+st.sidebar.caption('Legacy explorer filters affect overview, customer analysis and ranking. Final independent evaluation always uses all 40 saved cases.')
 categories = st.sidebar.multiselect('Merchant categories', sorted(cleaned.merchant_category.unique()), default=sorted(cleaned.merchant_category.unique()))
 customer = st.sidebar.selectbox('Customer', ['All customers'] + [str(x) for x in sorted(cleaned.customer_id.unique())])
 dates = st.sidebar.date_input('Date range', value=(cleaned.date.min().date(), cleaned.date.max().date()), min_value=cleaned.date.min().date(), max_value=cleaned.date.max().date())
@@ -27,7 +28,10 @@ if len(dates) != 2:
     st.stop()
 filtered = filter_transactions(cleaned, categories, customer, *dates, amount_range)
 st.sidebar.caption(f'{len(filtered):,} of {len(cleaned):,} cleaned transactions selected')
-overview, quality, customers, ranking, evaluation, robustness = st.tabs(['Overview', 'Data quality', 'Customer spending', 'Anomaly ranking', 'Model evaluation', 'Robustness'])
+independent, overview, quality, customers, ranking, evaluation, robustness = st.tabs(['Independent evaluation', 'Overview', 'Data quality', 'Customer spending', 'Anomaly ranking', 'Historical development evidence', 'Historical robustness'])
+
+with independent:
+    render_independent()
 
 with overview:
     st.subheader('Transaction overview')
@@ -91,11 +95,13 @@ with ranking:
     st.download_button('Download ranked selection', ranked.to_csv(index=False).encode(), 'ranked_synthetic_transactions.csv', 'text/csv')
 
 with evaluation:
-    st.subheader('Saved model evaluation')
+    st.subheader('Historical development evidence')
+    st.warning('Earlier failed Phase 2 independent study: 0 of 3,000 injected rows detected; 6 non-injected rows alerted across 300,000 scored rows. Phase 6 development audit: 16 of 670 injected rows detected (2.39% recall). These separate historical studies remain unchanged; the final paired comparison is the first tab.')
     st.caption('Full saved experiment splits. Sidebar transaction filters do not change these metrics.')
     scope = st.selectbox('Evaluation experiment', ['Phase 2 selected features · validation', 'Phase 1 · historical test'], key='evaluation_experiment')
     phase2 = scope.startswith('Phase 2')
     if phase2:
+        st.markdown('### Model Selection Only — Two Injected Anomalies')
         metadata = saved['phase2_metrics']
         selected = next(item for item in metadata['results'] if item['feature_set'] == metadata['selected_feature_set'])
         metrics, predictions = selected, saved['validation']
@@ -103,7 +109,7 @@ with evaluation:
         st.caption('Features: ' + ', '.join(metadata['feature_columns']))
     else:
         metrics, predictions = saved['phase1_metrics'], saved['historical']
-        st.warning('Historical test: baseline outcomes were previously inspected. This is not Phase 2 test performance; a fresh final period remains reserved.')
+        st.warning('Historical Phase 1 test: previously inspected baseline outcomes. These are not the final independent Phase 2 results; see the first tab for the accepted Stage 5 comparison.')
     cols = st.columns(4)
     alerts = int(predictions.anomaly_flag.sum())
     for col, label, value in zip(cols, ['Precision', 'Recall', 'F1', 'Saved alerts'], [f"{metrics['precision']:.1%}" if alerts else 'N/A', f"{metrics['recall']:.1%}", f"{metrics['f1']:.1%}", str(alerts)]):
@@ -133,7 +139,8 @@ with evaluation:
 
 
 with robustness:
-    st.subheader('Repeated synthetic experiments')
+    st.subheader('Historical development robustness experiments')
+    st.caption('Prior robustness evidence is historical development context, not the final independent comparison. See the first tab for Stage 5.')
     try:
         robust = load_robustness()
     except (OSError, ValueError, KeyError) as exc:

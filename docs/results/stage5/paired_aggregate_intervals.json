@@ -1,0 +1,20 @@
+[
+  {
+    "policy": "native",
+    "mean_delta": 0.054071428571428576,
+    "lower_95": 0.049999999999999996,
+    "upper_95": 0.05821428571428571,
+    "draws": 10000,
+    "unit": "whole paired case, stratified by fixed scenario",
+    "seed": 730289901
+  },
+  {
+    "policy": "equal_budget",
+    "mean_delta": 0.04414285714285715,
+    "lower_95": 0.03842678571428571,
+    "upper_95": 0.05007142857142858,
+    "draws": 10000,
+    "unit": "whole paired case, stratified by fixed scenario",
+    "seed": 730289901
+  }
+]

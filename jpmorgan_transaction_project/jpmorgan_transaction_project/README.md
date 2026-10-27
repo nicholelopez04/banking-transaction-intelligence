@@ -1,19 +1,11 @@
 # Application directory
 
-The current project guide is the [repository README](../../README.md).
-This directory retains the original working Python environment and runnable main.py.
-
-From this directory in Windows PowerShell:
+See the [repository README](../../README.md) for final findings, setup and limitations.
+Run the saved-evidence dashboard without regenerating experiments:
 
 ```powershell
-& .\.venv\Scripts\python.exe main.py
-& .\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
 & .\.venv\Scripts\python.exe -m streamlit run app.py --server.address 127.0.0.1 --browser.gatherUsageStats false
+& .\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
 ```
 
-The default run compares Phase 2 features on validation only. `--phase 1`
-reproduces the historical threshold experiment; `--phase 4` runs repeated model
-comparison with a frozen future assessment. See the root guide for exact output
-behavior, installation commands, measured results and limitations.
-
-All data is synthetic; anomaly alerts are not verified fraud.
+The first tab presents the accepted Stage 5 independent synthetic evaluation. All transactions are synthetic; neither pipeline met its research screening targets or is production-ready. Legacy CLI experiments remain available for historical source inspection, but are not needed to view saved results and should not overwrite accepted evidence.
